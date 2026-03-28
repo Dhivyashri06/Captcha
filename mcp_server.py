@@ -129,5 +129,5 @@ async def break_captcha(captcha_image_base64: str) -> dict:
         return {"guess": "Error", "source": "Error"}
 
 if __name__ == "__main__":
-    print("🚀 Starting Captcha MCP Server via stdio...")
+    print("Starting Captcha MCP Server via stdio...")
     mcp.run()
