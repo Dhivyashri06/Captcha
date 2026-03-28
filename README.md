@@ -147,8 +147,3 @@ Returns:
 * Predicted text
 * Source (Gemini / OCR)
 
----
-├── requirements.txt
-├── .env
-└── README.md
-```
