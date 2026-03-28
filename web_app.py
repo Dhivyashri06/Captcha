@@ -26,7 +26,7 @@ def generate():
 
     try:
         result = loop.run_until_complete(run_tool())
-        print("🔍 MCP Response:", result)
+        print(" MCP Response:", result)
 
         if hasattr(result, "structured_content") and isinstance(result.structured_content, dict):
             image_data = result.structured_content.get("image")
@@ -38,7 +38,7 @@ def generate():
         else:
             return jsonify({"error": "No structured_content found in response"})
     except Exception as e:
-        print(f"❌ Error generating captcha: {e}")
+        print(f"Error generating captcha: {e}")
         return jsonify({"error": str(e)})
 
 @app.route("/verify", methods=["POST"])
@@ -61,7 +61,7 @@ def verify():
         else:
             return jsonify({"result": "Wrong"})
     except Exception as e:
-        print(f"❌ Error verifying captcha: {e}")
+        print(f" Error verifying captcha: {e}")
         return jsonify({"result": "Wrong"})
 
 @app.route("/break", methods=["POST"])
@@ -85,9 +85,9 @@ def break_captcha():
         else:
             return jsonify({"guess": result})
     except Exception as e:
-        print(f"❌ Error breaking captcha: {e}")
+        print(f" Error breaking captcha: {e}")
         return jsonify({"error": str(e)})
 
 if __name__ == "__main__":
-    print("🚀 Starting Flask + MCP app...")
+    print("Starting Flask + MCP app...")
     app.run(debug=True)
