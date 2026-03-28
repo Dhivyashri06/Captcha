@@ -148,14 +148,6 @@ Returns:
 * Source (Gemini / OCR)
 
 ---
-
-
-## Structure
-
-```
-captcha-ai/
-├── main.py
-├── mcp_server.py
 ├── requirements.txt
 ├── .env
 └── README.md
