@@ -10,10 +10,10 @@ from langchain_mcp_adapters.client import MultiServerMCPClient
 load_dotenv()
 GEMINI_KEY = os.getenv("GOOGLE_API_KEY")
 if not GEMINI_KEY:
-    raise ValueError("❌ GOOGLE_API_KEY not found in .env file")
+    raise ValueError(" GOOGLE_API_KEY not found in .env file")
 
 async def main():
-    print("🔗 Connecting to MCP Captcha Server...")
+    print(" Connecting to MCP Captcha Server...")
 
     SERVER_PATH = os.path.abspath("mcp_server.py")
 
@@ -28,12 +28,12 @@ async def main():
     try:
         tools = await client.get_tools()
         if not tools:
-            print("⚠️ No tools discovered. Check server logs.")
+            print("No tools discovered. Check server logs.")
             return
         tool_names = [t.name if hasattr(t, "name") else str(t) for t in tools]
-        print(f"✅ Connected! Tools discovered: {tool_names}")
+        print(f" Connected! Tools discovered: {tool_names}")
     except Exception as e:
-        print(f"❌ Connection Error: {e}")
+        print(f" Connection Error: {e}")
         return
 
 
@@ -55,7 +55,7 @@ async def main():
     while True:
         q = input("\n💬 Ask me something (or type 'exit' to quit): ").strip()
         if q.lower() == "exit":
-            print("👋 Exiting session.")
+            print(" Exiting session.")
             break
 
         try:
@@ -63,9 +63,9 @@ async def main():
                 {"messages": [{"role": "user", "content": q}]},
                 config=thread_config
             )
-            print("\n🧠 Response:\n", response["messages"][-1].content)
+            print("\n Response:\n", response["messages"][-1].content)
         except Exception as e:
-            print(f"⚠️ Error: {e}")
+            print(f" Error: {e}")
 
 if __name__ == "__main__":
     asyncio.run(main())
